@@ -1,1 +1,6 @@
-{ "extends": ["@finsweet"] }
+{
+  "extends": ["@finsweet"],
+  "rules": {
+    "no-console": "off" // allow console.log for Barba.js build
+  }
+}

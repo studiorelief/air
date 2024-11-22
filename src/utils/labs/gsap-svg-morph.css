@@ -1,0 +1,32 @@
+.labs_asset.is-2 {
+  -webkit-mask-image: url(https://cdn.prod.website-files.com/671a5607e41f200df130be78/671a6055c7c6aa7bbe10c2bc_blob.svg);
+  mask-image: url(https://cdn.prod.website-files.com/671a5607e41f200df130be78/671a6055c7c6aa7bbe10c2bc_blob.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: auto;
+  mask-size: auto;
+}
+
+/* .labs_asset.is-3 {
+    mask-image: url(#blobMask);
+    -webkit-mask-image: url(#blobMask);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: auto;
+    -webkit-mask-size: auto;
+  } */
+
+.labs_asset.is-4 {
+  -webkit-mask-image: url(https://cdn.prod.website-files.com/671a5607e41f200df130be78/672e47e3cab7653decad4e3a_blob-form.json);
+  mask-image: url(https://cdn.prod.website-files.com/671a5607e41f200df130be78/672e47e3cab7653decad4e3a_blob-form.json);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: auto;
+  mask-size: auto;
+}

@@ -1,13 +1,13 @@
 {
-  "name": "@finsweet/developer-starter",
-  "version": "0.0.0",
-  "description": "Developer starter template for Finsweet projects.",
-  "homepage": "https://github.com/finsweet/developer-starter#readme",
+  "name": "@studiorelief/air",
+  "version": "1.0.0",
+  "description": "Air website",
+  "homepage": "https://github.com/studiorelief/air#readme",
   "license": "ISC",
   "keywords": [],
   "author": {
-    "name": "Finsweet",
-    "url": "https://finsweet.com/"
+    "name": "Studio Relief",
+    "url": "https://www.studiorelief.com/"
   },
   "repository": {
     "type": "git",
@@ -52,7 +52,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@finsweet/ts-utils": "^0.40.0"
+    "@barba/core": "^2.10.3",
+    "@finsweet/ts-utils": "^0.40.0",
+    "gsap": "^3.12.5"
   },
   "engines": {
     "pnpm": ">=9"

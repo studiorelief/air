@@ -1,0 +1,16 @@
+.button .button_c-wrapper {
+  scale: 1;
+  transition: scale 0.2s ease-out;
+}
+
+.button:hover .button_c-wrapper {
+  scale: 1.05;
+}
+
+.button .button_background-layer {
+  transition: height 0.2s ease-out;
+}
+
+.button:hover .button_background-layer {
+  height: 100%;
+}
