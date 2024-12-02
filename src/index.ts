@@ -46,7 +46,7 @@ window.Webflow.push(() => {
           gsap.to(data.current.container, { opacity: 0, duration: 0.5 });
         },
         async enter(data) {
-          await gsap.to(data.next.container, { opacity: 1, duration: 1 });
+          await gsap.to(data.next.container, { opacity: 1, duration: 0.5 });
         },
       },
     ],

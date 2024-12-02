@@ -17,11 +17,15 @@ export const gsapTransitionOut = () => {
   */
   const tl = gsap.timeline();
 
-  tl.to(main, {
-    opacity: 0,
-    duration: 0.5,
-    ease: 'power2.inOut',
-  })
+  tl.to(
+    main,
+    {
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.inOut',
+    },
+    '-0.5'
+  )
     .to(logo, {
       scale: scaleAmount,
       duration: 1,
@@ -62,11 +66,15 @@ export const gsapTransitionOut = () => {
         });
       },
     })
-    .to(logo, {
-      scale: 1,
-      duration: 1,
-      ease: 'power2.inOut',
-    });
+    .to(
+      logo,
+      {
+        scale: 1,
+        duration: 1,
+        ease: 'power2.inOut',
+      },
+      '-=1'
+    );
 };
 
 /* 
