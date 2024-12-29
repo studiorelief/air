@@ -1,0 +1,13 @@
+.split-text.is-first {
+  background-color: var(--light--text-color--text-primary);
+  background-image: none;
+  font-family: var(--base-font-brand--tt-norms-pro);
+  font-weight: 700;
+}
+
+.split-text-alternate.is-first {
+  background-color: var(--light--text-color--text-primary);
+  background-image: none;
+  font-family: var(--base-font-brand--tt-norms-pro);
+  font-weight: 700;
+}

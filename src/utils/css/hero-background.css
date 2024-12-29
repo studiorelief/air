@@ -1,0 +1,21 @@
+.animation-grid_background-container {
+  display: flex;
+  /* background-color: var(--base-color-brand--red); */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="22" height="22" fill="rgb(245,245,247)"/></svg>');
+  background-position: 0px 0px;
+  background-size: auto;
+}
+
+.w-mod-js.dark-mode .animation-grid_background-container {
+  display: flex;
+  /* background-color: var(--base-color-brand--red); */
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="22" height="22" fill="rgb(13,13,13)"/></svg>');
+  background-position: 0px 0px;
+  background-size: auto;
+}
+
+.animation-grid_background-round {
+  opacity: 0.1;
+  width: 50%;
+  height: 50%;
+}

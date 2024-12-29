@@ -3,6 +3,7 @@ import gsap from 'gsap';
 export const gsapTransitionOut = () => {
   // Selector
   const logo = document.querySelector('.navbar_logo-round');
+  const logoMain = document.querySelector('.navbar_logo-text');
   const main = document.querySelector('.main-wrapper');
   const transitionWrapper = document.querySelector('.transition_component');
   const transitionText = document.querySelector('.transition_text');
@@ -14,8 +15,15 @@ export const gsapTransitionOut = () => {
   // timeline
   /* 
   TODO : Réduire l'anim à 2 secondes max
+  TODO : Fix le bug du transtionWrapper -> Disparait avec l'anim de back
+  TODO : Revoir la timeline
   */
-  const tl = gsap.timeline();
+  const tl = gsap.timeline({
+    defaults: {
+      ease: 'power2.inOut',
+      duration: 0.25,
+    },
+  });
 
   tl.to(
     main,
@@ -26,11 +34,21 @@ export const gsapTransitionOut = () => {
     },
     '-0.5'
   )
+    .to(
+      logoMain,
+      {
+        color: 'var(--dark--text-color--text-primary)',
+        duration: 0.25,
+        ease: 'power2.inOut',
+      },
+      '-=0.5'
+    )
     .to(logo, {
       scale: scaleAmount,
       duration: 1,
       ease: 'power2.inOut',
     })
+
     .to(
       transitionWrapper,
       {
@@ -60,12 +78,26 @@ export const gsapTransitionOut = () => {
       opacity: 1,
       duration: 0.5,
       ease: 'power2.inOut',
-      onComplete: () => {
-        gsap.to(transitionWrapper, {
-          display: 'none',
-        });
-      },
     })
+    .to(
+      transitionWrapper,
+      {
+        // opacity: 0,
+        display: 'none',
+        duration: 0.15,
+        ease: 'power2.inOut',
+      },
+      '-=0.6'
+    )
+    .to(
+      logoMain,
+      {
+        color: 'var(--light--text-color--text-primary)',
+        duration: 0.25,
+        ease: 'power2.inOut',
+      },
+      '-=0.25'
+    )
     .to(
       logo,
       {
