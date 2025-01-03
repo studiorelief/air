@@ -11,10 +11,10 @@ export function animateUsecasesAsset() {
     gsap.fromTo(
       asset,
       {
-        y: '-5rem',
+        y: '-1rem',
       },
       {
-        y: '5rem',
+        y: '1rem',
         scrollTrigger: {
           markers: false,
           trigger: triggers[index],

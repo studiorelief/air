@@ -1,3 +1,9 @@
+.usecases_listing_dark-lottie,
+.usecases_listing_white-lottie,
+.usecases_listing_shadow-lottie {
+  scale: 1.35;
+}
+
 .w-mod-js.dark-mode .usecases_listing_dark-lottie {
   display: flex;
   filter: blur(4px);

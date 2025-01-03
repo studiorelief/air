@@ -23,7 +23,7 @@ export const activeSplitText = () => {
   const typeSplitAlternateFirstLetterOff = new SplitType(
     '[text-split-alternate-first-letter-off]',
     {
-      types: 'words,chars',
+      types: 'words', // Removed chars to only split words
       tagName: 'span',
       charClass: 'split-text-alternate',
     }
@@ -36,7 +36,20 @@ export const activeSplitText = () => {
   ].forEach(([split, selector]) => {
     if (split instanceof SplitType && split.words) {
       split.words.forEach((word) => {
-        word.querySelectorAll(selector)[0]?.classList.add('is-first');
+        // For typeSplitAlternateFirstLetterOff, add is-first class to first character
+        if (split === typeSplitAlternateFirstLetterOff) {
+          const firstChar = word.textContent?.[0];
+          if (firstChar) {
+            const span = document.createElement('span');
+            span.textContent = firstChar;
+            span.classList.add('is-first');
+            word.textContent = word.textContent?.slice(1) || '';
+            word.insertBefore(span, word.firstChild);
+          }
+        } else {
+          // Original behavior for other splits
+          word.querySelectorAll(selector)[0]?.classList.add('is-first');
+        }
       });
     }
   });

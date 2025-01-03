@@ -17,6 +17,8 @@ import { activeSplitText } from '$utils/global/splitType';
 import { animateUsecasesAsset } from '$utils/usecases/lottieParallax';
 import { animateButtonExpertise } from '$utils/vision/expertise-tabs';
 import { marqueeAnimation } from '$utils/vision/marquee';
+import { rotateBackgroundAssets } from '$utils/vision/rotationBackground';
+
 window.Webflow ||= [];
 window.Webflow.push(() => {
   /*
@@ -75,6 +77,7 @@ window.Webflow.push(() => {
 
   /* Vision */
   animateButtonExpertise();
+  rotateBackgroundAssets();
 
   /* Experts */
 
@@ -112,11 +115,6 @@ window.Webflow.push(() => {
       loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
     ]);
 
-    /* Heroes */
-    initHeroBackgroundHover();
-
-    /* Headings */
-    activeSplitText();
     const AnimationPageText = () => {
       const dataNamespace = data.next.namespace;
       console.log(dataNamespace);
@@ -126,12 +124,6 @@ window.Webflow.push(() => {
       }
     };
     AnimationPageText();
-
-    /* Vision */
-    animateButtonExpertise();
-
-    /* Expertise */
-    swiperPageExpertise();
   });
 
   /*
@@ -142,12 +134,26 @@ window.Webflow.push(() => {
     console.log('hook After');
     console.log(data);
 
+    /* Global */
     // scroll to top
     window.scrollTo(0, 0);
-
     restartWebflow();
     initBarbaClick();
+
+    /* Headings & Heroes */
+    activeSplitText();
+    initHeroBackgroundHover();
+
+    /* Expertise */
+    swiperPageExpertise();
     initExpertiseLineScroll();
+
+    /* Usecases */
     animateUsecasesAsset();
+    swiperUsecasesCarousel();
+
+    /* Vision */
+    animateButtonExpertise();
+    rotateBackgroundAssets();
   });
 });

@@ -41,8 +41,9 @@ export function initHeroBackgroundHover() {
       gsap.to(backgroundRound, {
         x: centerX,
         y: centerY,
-        duration: 0.5,
+        duration: 1.5,
         ease: 'power2.out',
+        // delay: 2.5,
       });
     });
 
