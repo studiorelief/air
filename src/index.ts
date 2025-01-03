@@ -11,11 +11,12 @@ import { darkMode } from '$utils/global/darkMode';
 import { gsapTransitionOut, initBarbaClick } from '$utils/global/gsapTransition';
 import { initHeroBackgroundHover } from '$utils/global/heroBackground';
 import { loadScript } from '$utils/global/loadScript';
+import { initMarker } from '$utils/global/marker';
 import { loadModelViewerScript } from '$utils/global/modalViewer';
 import { activeSplitText } from '$utils/global/splitType';
-import { animateButtonExpertise } from '$utils/usecases/expertise-tabs';
-import { marqueeAnimation } from '$utils/usecases/marquee';
-import { animateVisionAsset } from '$utils/vision/lottieParallax';
+import { animateUsecasesAsset } from '$utils/usecases/lottieParallax';
+import { animateButtonExpertise } from '$utils/vision/expertise-tabs';
+import { marqueeAnimation } from '$utils/vision/marquee';
 window.Webflow ||= [];
 window.Webflow.push(() => {
   /*
@@ -52,6 +53,9 @@ window.Webflow.push(() => {
     'power1.inOut'
   );
 
+  /* Marker */
+  initMarker();
+
   /* Heroes */
   initHeroBackgroundHover();
 
@@ -61,14 +65,16 @@ window.Webflow.push(() => {
   /* Footer */
   marqueeAnimation();
 
-  /* Vision */
-  animateButtonExpertise();
-  animateVisionAsset();
+  /* Usecases */
+  animateUsecasesAsset();
   swiperUsecasesCarousel();
 
   /* Expertise */
   swiperPageExpertise();
   initExpertiseLineScroll();
+
+  /* Vision */
+  animateButtonExpertise();
 
   /* Experts */
 
@@ -142,10 +148,6 @@ window.Webflow.push(() => {
     restartWebflow();
     initBarbaClick();
     initExpertiseLineScroll();
-    animateVisionAsset();
+    animateUsecasesAsset();
   });
 });
-
-//
-// window.Webflow.push(() => {
-// });

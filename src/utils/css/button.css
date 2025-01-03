@@ -29,7 +29,7 @@
 
 /* Button tabs */
 
-.usecases_expertise_conic-background {
+.vision_expertise_conic-background {
   border-radius: var(--border-radius--radius-0-5rem); /*1*/
   border: 2px solid transparent; /*2*/
   background: conic-gradient(from 150deg, #9e144f, #fedbcd, #055d46, #b5413e, #c4671b, #9e144f)
@@ -45,22 +45,22 @@
   opacity: 0.25;
 }
 
-.usecases_expertise_tabs-link.w--current .usecases_expertise_radial-active {
+.vision_expertise_tabs-link.w--current .vision_expertise_radial-active {
   opacity: 0.1;
 }
 
-.usecases_expertise_tabs-link.w--current .usecases_expertise_conic-background {
+.vision_expertise_tabs-link.w--current .vision_expertise_conic-background {
   opacity: 0.5;
 }
 
 /* Button glass effect */
 
-.usecases_expertise_tabs-link {
+.vision_expertise_tabs-link {
   position: relative;
   overflow: hidden;
 }
 
-.usecases_expertise_tabs-link:before {
+.vision_expertise_tabs-link:before {
   content: '';
   position: absolute;
   top: 0;
@@ -70,7 +70,7 @@
   /* background: rgba(255, 255, 255, 0); */
 }
 
-.usecases_expertise_tabs-link:after {
+.vision_expertise_tabs-link:after {
   content: '';
   position: absolute;
   top: 0;
@@ -82,7 +82,7 @@
   transition-delay: 0.15s;
 }
 
-.usecases_expertise_tabs-link:hover:after {
+.vision_expertise_tabs-link:hover:after {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   left: 100%;
 }

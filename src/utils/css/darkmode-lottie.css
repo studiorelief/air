@@ -1,18 +1,18 @@
-.w-mod-js.dark-mode .vision_listing_dark-lottie {
+.w-mod-js.dark-mode .usecases_listing_dark-lottie {
   display: flex;
   filter: blur(4px);
   mix-blend-mode: darken;
 }
 
-.w-mod-js.dark-mode .vision_listing_white-lottie {
+.w-mod-js.dark-mode .usecases_listing_white-lottie {
   display: none;
 }
 
-.w-mod-js.dark-mode .vision_listing_anim-asset {
+.w-mod-js.dark-mode .usecases_listing_anim-asset {
   mix-blend-mode: screen;
 }
 
-.w-mod-js.dark-mode .vision_listing_shadow-lottie {
+.w-mod-js.dark-mode .usecases_listing_shadow-lottie {
   display: none;
   /* z-index: 2; */
   /* opacity: 0.05; */
