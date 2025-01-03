@@ -5,23 +5,23 @@ import { restartWebflow } from '@finsweet/ts-utils';
 import gsap from 'gsap';
 
 import { swiperPageExpertise } from '$utils/component/swiper/swiperExpertise';
-import { swiperHomeUsecases } from '$utils/component/swiper/swiperUsecases';
+import { swiperUsecasesCarousel } from '$utils/component/swiper/swiperUsecases';
 import { initExpertiseLineScroll } from '$utils/expertise/gsapScroll';
 import { darkMode } from '$utils/global/darkMode';
-import {
-  /* gsapTransitionIn, */
-  gsapTransitionOut,
-  initBarbaClick,
-} from '$utils/global/gsapTransition';
+import { gsapTransitionOut, initBarbaClick } from '$utils/global/gsapTransition';
 import { initHeroBackgroundHover } from '$utils/global/heroBackground';
 import { loadScript } from '$utils/global/loadScript';
 import { loadModelViewerScript } from '$utils/global/modalViewer';
 import { activeSplitText } from '$utils/global/splitType';
-import { animateButtonExpertise } from '$utils/home/expertise-tabs';
-import { marqueeAnimation } from '$utils/home/marquee';
-// import { initVisionDarkMode } from '$utils/vision/lottieDarkMode';
+import { animateButtonExpertise } from '$utils/usecases/expertise-tabs';
+import { marqueeAnimation } from '$utils/usecases/marquee';
+import { animateVisionAsset } from '$utils/vision/lottieParallax';
 window.Webflow ||= [];
 window.Webflow.push(() => {
+  /*
+  ! GLOBAL
+  */
+
   /* first load */
   initBarbaClick();
   loadModelViewerScript();
@@ -32,6 +32,7 @@ window.Webflow.push(() => {
     loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
     loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
   ]);
+
   darkMode(
     // variables
     `
@@ -51,25 +52,23 @@ window.Webflow.push(() => {
     'power1.inOut'
   );
 
-  /* Hero */
+  /* Heroes */
   initHeroBackgroundHover();
 
-  // headings
+  /* Headings */
   activeSplitText();
 
-  /* footer */
+  /* Footer */
   marqueeAnimation();
 
-  /* Home */
-  swiperHomeUsecases();
+  /* Vision */
   animateButtonExpertise();
+  animateVisionAsset();
+  swiperUsecasesCarousel();
 
   /* Expertise */
   swiperPageExpertise();
   initExpertiseLineScroll();
-
-  /* Vision */
-  // initVisionDarkMode();
 
   /* Experts */
 
@@ -88,6 +87,10 @@ window.Webflow.push(() => {
     ],
   });
 
+  /*
+  ! BARBAR BEFORE
+  */
+
   barba.hooks.beforeEnter((data) => {
     console.log('hook beforeEnter');
 
@@ -95,6 +98,18 @@ window.Webflow.push(() => {
     TODO: À retravailler -> Comprendre & régler async / await x Barba & GSAP
     TODO: Check Flip plugin GSAP
     */
+
+    /* Global */
+    Promise.all([
+      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsstatic@1/cmsstatic.js'),
+      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
+      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
+    ]);
+
+    /* Heroes */
+    initHeroBackgroundHover();
+
+    /* Headings */
     activeSplitText();
     const AnimationPageText = () => {
       const dataNamespace = data.next.namespace;
@@ -106,24 +121,16 @@ window.Webflow.push(() => {
     };
     AnimationPageText();
 
-    /* Home */
-    swiperHomeUsecases();
+    /* Vision */
     animateButtonExpertise();
-
-    /* Hero */
-    initHeroBackgroundHover();
 
     /* Expertise */
     swiperPageExpertise();
-    // initExpertiseLineScroll();
-
-    /* Global */
-    Promise.all([
-      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsstatic@1/cmsstatic.js'),
-      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
-      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
-    ]);
   });
+
+  /*
+  ! BARBAR AFTER 
+  */
 
   barba.hooks.after((data) => {
     console.log('hook After');
@@ -135,6 +142,7 @@ window.Webflow.push(() => {
     restartWebflow();
     initBarbaClick();
     initExpertiseLineScroll();
+    animateVisionAsset();
   });
 });
 

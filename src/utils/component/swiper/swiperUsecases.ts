@@ -4,10 +4,10 @@ import { Swiper } from 'swiper';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 
 // Use built-in creative effect instead of custom carousel effect
-export function swiperHomeUsecases() {
-  const swiperContainers = document.querySelectorAll('.swiper.is-usecases');
+export function swiperUsecasesCarousel() {
+  const swiperUsecasesContainers = document.querySelectorAll('.swiper.is-usecases');
 
-  swiperContainers.forEach((container) => {
+  swiperUsecasesContainers.forEach((container) => {
     // Cast container to HTMLElement to fix type error
     new Swiper(container as HTMLElement, {
       modules: [Autoplay, Mousewheel],

@@ -20,7 +20,7 @@ export function animateButtonExpertise() {
 
   // Initial animation for current buttons
   const buttons = document.querySelectorAll(
-    '.home_expertise_tabs-link.w--current .home_expertise_conic-background'
+    '.usecases_expertise_tabs-link.w--current .usecases_expertise_conic-background'
   );
   buttons.forEach(startButtonAnimation);
 
@@ -29,7 +29,7 @@ export function animateButtonExpertise() {
     mutations.forEach((mutation) => {
       if (mutation.target instanceof Element) {
         const tabLink = mutation.target;
-        const conicBackground = tabLink.querySelector('.home_expertise_conic-background');
+        const conicBackground = tabLink.querySelector('.usecases_expertise_conic-background');
 
         if (conicBackground) {
           if (tabLink.classList.contains('w--current')) {
@@ -43,7 +43,7 @@ export function animateButtonExpertise() {
   });
 
   // Observe all tab links
-  const tabLinks = document.querySelectorAll('.home_expertise_tabs-link');
+  const tabLinks = document.querySelectorAll('.usecases_expertise_tabs-link');
   tabLinks.forEach((link) => {
     observer.observe(link, {
       attributes: true,

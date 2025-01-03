@@ -16,3 +16,13 @@
     black
   );
 }
+
+/* CTA Video */
+
+.usecases_cta_background-video-wrapper {
+  mix-blend-mode: exclusion;
+}
+
+.w-mod-js.dark-mode .usecases_cta_background-video-wrapper {
+  mix-blend-mode: screen;
+}
