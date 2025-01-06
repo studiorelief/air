@@ -1,4 +1,0 @@
-/* swiper linear loop */
-.swiper.is-expertise .swiper-wrapper {
-  transition-timing-function: linear;
-}

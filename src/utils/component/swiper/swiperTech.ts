@@ -4,7 +4,7 @@ import { Swiper } from 'swiper';
 import { Autoplay, Mousewheel } from 'swiper/modules';
 
 // Use built-in creative effect instead of custom carousel effect
-export function swiperPageExpertise() {
+export function swiperPageTech() {
   const swiperContainers = document.querySelectorAll('.swiper.is-expertise');
 
   swiperContainers.forEach((container) => {
@@ -13,7 +13,7 @@ export function swiperPageExpertise() {
       modules: [Autoplay, Mousewheel],
       direction: 'vertical',
       loop: true,
-      slidesPerView: 'auto',
+      slidesPerView: 6,
       autoHeight: true,
       spaceBetween: 8,
       // centeredSlides: true,

@@ -17,6 +17,11 @@
   );
 }
 
+/* container */
+.w-mod-js.dark-mode .container-background.is-last {
+  background-image: linear-gradient(180deg, transparent, black);
+}
+
 /* CTA Video */
 
 .vision_cta_background-video-wrapper {
@@ -25,4 +30,43 @@
 
 .w-mod-js.dark-mode .vision_cta_background-video-wrapper {
   mix-blend-mode: screen;
+}
+
+/*
+! Dark Mode Toggle 
+*/
+
+/* white mode */
+.navbar_button-dark-mode .navbar_icon-white-mode {
+  transition: rotate 0.4s ease-out;
+}
+
+.navbar_button-dark-mode:hover .navbar_icon-white-mode {
+  rotate: 45deg;
+}
+
+.w-mod-js.dark-mode .navbar_button-dark-mode .navbar_icon-white-mode {
+  display: block;
+}
+
+.w-mod-js.dark-mode .navbar_button-dark-mode:hover .navbar_dark-mode-icon-hover {
+  display: none;
+}
+
+/* dark mode */
+
+.w-mod-js.dark-mode .navbar_button-dark-mode .navbar_icon-dark-mode {
+  display: none;
+}
+
+.navbar_button-dark-mode:hover .navbar_dark-mode-icon-hover {
+  opacity: 1;
+}
+
+/* 
+! Vision - ADJ
+*/
+
+.w-mod-js.dark-mode .vision_expertise_tabs-pane-w {
+  background-color: rgba(255, 255, 255, 0.05);
 }

@@ -6,7 +6,8 @@
 
 .w-mod-js.dark-mode .usecases_listing_dark-lottie {
   display: flex;
-  filter: blur(4px);
+  /* add blur 4px for window effect */
+  filter: blur(0px);
   mix-blend-mode: darken;
 }
 

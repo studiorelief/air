@@ -16,10 +16,12 @@ export function swiperUsecasesCarousel() {
       slidesPerView: 5,
       spaceBetween: 8,
       centeredSlides: true,
+      speed: 800,
       autoplay: {
-        delay: 5000,
+        delay: 2000,
         pauseOnMouseEnter: true,
         disableOnInteraction: false,
+        reverseDirection: true,
       },
       mousewheel: {
         forceToAxis: true,

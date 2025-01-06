@@ -1,0 +1,8 @@
+/* swiper linear loop */
+.swiper.is-expertise .swiper-wrapper {
+  transition-timing-function: linear;
+}
+
+.w-mod-js.dark-mode .tech_listing_cards {
+  background-color: var(--dark--background-color--background-primary);
+}

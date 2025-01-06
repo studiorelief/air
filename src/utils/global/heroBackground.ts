@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 export function initHeroBackgroundHover() {
-  const components = document.querySelectorAll('.main-wrapper');
+  const components = document.querySelectorAll('body');
 
   components.forEach((component) => {
     const backgroundRound = component.querySelector('.animation-grid_background-round');
@@ -30,20 +30,21 @@ export function initHeroBackgroundHover() {
       const componentHeight = component.clientHeight;
       const roundHeight = roundElement.offsetHeight;
 
-      // Calculer les limites pour garder l'élément rond entièrement visible
-      const maxX = componentWidth - roundWidth;
-      const maxY = componentHeight - roundHeight;
+      // Calculer les limites pour permettre au rond de déborder de 50%
+      const maxX = componentWidth - roundWidth / 2;
+      const maxY = componentHeight - roundHeight / 2;
+      const minX = -roundWidth / 2;
+      const minY = -roundHeight / 2;
 
-      // Calculer la position centrée avec contraintes
-      const centerX = Math.max(0, Math.min(maxX, mouseX - roundWidth / 2));
-      const centerY = Math.max(0, Math.min(maxY, mouseY - roundHeight / 2));
+      // Calculer la position centrée avec nouvelles contraintes
+      const centerX = Math.max(minX, Math.min(maxX, mouseX - roundWidth / 2));
+      const centerY = Math.max(minY, Math.min(maxY, mouseY - roundHeight / 2));
 
       gsap.to(backgroundRound, {
         x: centerX,
         y: centerY,
         duration: 1.5,
         ease: 'power2.out',
-        // delay: 2.5,
       });
     });
 

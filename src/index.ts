@@ -4,9 +4,8 @@ import barba from '@barba/core';
 import { restartWebflow } from '@finsweet/ts-utils';
 import gsap from 'gsap';
 
-import { swiperPageExpertise } from '$utils/component/swiper/swiperExpertise';
+import { swiperPageTech } from '$utils/component/swiper/swiperTech';
 import { swiperUsecasesCarousel } from '$utils/component/swiper/swiperUsecases';
-import { initExpertiseLineScroll } from '$utils/expertise/gsapScroll';
 import { darkMode } from '$utils/global/darkMode';
 import { gsapTransitionOut, initBarbaClick } from '$utils/global/gsapTransition';
 import { initHeroBackgroundHover } from '$utils/global/heroBackground';
@@ -14,8 +13,10 @@ import { loadScript } from '$utils/global/loadScript';
 import { initMarker } from '$utils/global/marker';
 import { loadModelViewerScript } from '$utils/global/modalViewer';
 import { activeSplitText } from '$utils/global/splitType';
+import { initTechLineScroll } from '$utils/tech/gsapScroll';
 import { animateUsecasesAsset } from '$utils/usecases/lottieParallax';
 import { animateButtonExpertise } from '$utils/vision/expertise-tabs';
+import { heroVideoAnimation } from '$utils/vision/heroVideoAnimation';
 import { marqueeAnimation } from '$utils/vision/marquee';
 import { rotateBackgroundAssets } from '$utils/vision/rotationBackground';
 
@@ -71,13 +72,14 @@ window.Webflow.push(() => {
   animateUsecasesAsset();
   swiperUsecasesCarousel();
 
-  /* Expertise */
-  swiperPageExpertise();
-  initExpertiseLineScroll();
+  /* Tech */
+  swiperPageTech();
+  initTechLineScroll();
 
   /* Vision */
   animateButtonExpertise();
   rotateBackgroundAssets();
+  heroVideoAnimation();
 
   /* Experts */
 
@@ -144,9 +146,9 @@ window.Webflow.push(() => {
     activeSplitText();
     initHeroBackgroundHover();
 
-    /* Expertise */
-    swiperPageExpertise();
-    initExpertiseLineScroll();
+    /* Tech */
+    swiperPageTech();
+    initTechLineScroll();
 
     /* Usecases */
     animateUsecasesAsset();
@@ -155,5 +157,6 @@ window.Webflow.push(() => {
     /* Vision */
     animateButtonExpertise();
     rotateBackgroundAssets();
+    heroVideoAnimation();
   });
 });

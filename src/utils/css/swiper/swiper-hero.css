@@ -1,0 +1,5 @@
+.swiper.is-hero {
+  height: 75vh;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}

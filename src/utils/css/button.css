@@ -1,4 +1,6 @@
-/* Button Main */
+/* 
+! Button Main 
+*/
 
 .button .button_c-wrapper {
   scale: 1;
@@ -25,6 +27,33 @@
 
 .button.is-secondary:hover .icon-1x1-xsmall {
   transform: translate(0.5rem, 0px);
+}
+
+/* 
+! Button Footer 
+*/
+
+/* [data-wf--cc---component-button-main--variant='big-cta'] .button_background-layer {
+  opacity: 0.75;
+} */
+
+.button {
+  transition: color 0.2s ease-out;
+}
+
+[data-wf--cc---component-button-main--variant='base']:hover,
+[data-wf--cc---component-button-main--variant='base-big']:hover {
+  color: var(--dark--text-color--text-primary,);
+  /* color: red; */
+}
+
+.button_noise-asset {
+  opacity: 0.3;
+}
+
+.button_background-layer {
+  background-color: #000;
+  opacity: 0.65;
 }
 
 /* Button tabs */
@@ -83,6 +112,53 @@
 }
 
 .vision_expertise_tabs-link:hover:after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  left: 100%;
+}
+
+/* 
+! Button big 
+*/
+
+.button_big .button_big-background {
+  transition: opacity 0.5s ease-out;
+}
+
+.button_big:hover .button_big-background {
+  opacity: 0.8;
+  box-shadow: inset 0px 8px 8px 0px rgba(0, 0, 0, 1);
+}
+
+/* Button glass effect */
+
+.button_big-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.button_big-content:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  /* background: rgba(255, 255, 255, 0); */
+}
+
+.button_big-content:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.01), transparent);
+  transition: 0.5s;
+  transition-delay: 0.05s;
+}
+
+.button_big-content:hover:after {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   left: 100%;
 }

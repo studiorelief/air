@@ -1,7 +1,7 @@
 .animation-grid_background-container {
   display: flex;
   /* background-color: var(--base-color-brand--red); */
-  background-image: url('data:image/svg+xml;utf8,<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="33" height="33" fill="rgb(245,245,247)"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="35" height="35" fill="rgb(245,245,247)"/></svg>');
   background-position: 0px 0px;
   background-size: auto;
 }
@@ -9,7 +9,7 @@
 .w-mod-js.dark-mode .animation-grid_background-container {
   display: flex;
   /* background-color: var(--base-color-brand--red); */
-  background-image: url('data:image/svg+xml;utf8,<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="33" height="33" fill="rgb(13,13,13)"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="35" height="35" fill="rgb(13,13,13)"/></svg>');
   background-position: 0px 0px;
   background-size: auto;
 }

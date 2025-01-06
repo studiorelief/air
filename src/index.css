@@ -2,7 +2,9 @@
 @import './utils/css/heading-text.css';
 @import './utils/css/darkmode-component.css';
 @import './utils/css/swiper/swiper-usecases.css';
-@import './utils/css/swiper/swiper-expertise.css';
+@import './utils/css/swiper/swiper-tech.css';
 @import './utils/css/hero-background.css';
 @import './utils/css/cards-experts.css';
 @import './utils/css/darkmode-lottie.css';
+@import './utils/css/experts-cards.css';
+@import './utils/css/swiper/swiper-hero.css';
