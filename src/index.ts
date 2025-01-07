@@ -22,6 +22,9 @@ import { rotateBackgroundAssets } from '$utils/vision/rotationBackground';
 
 window.Webflow ||= [];
 window.Webflow.push(() => {
+  const heroVideo = heroVideoAnimation();
+  heroVideo.destroy();
+  heroVideo.init();
   /*
   ! GLOBAL
   */
@@ -126,6 +129,7 @@ window.Webflow.push(() => {
       }
     };
     AnimationPageText();
+    // Reset and restart hero video animation after page transition
   });
 
   /*
@@ -157,6 +161,7 @@ window.Webflow.push(() => {
     /* Vision */
     animateButtonExpertise();
     rotateBackgroundAssets();
-    heroVideoAnimation();
+    heroVideo.destroy();
+    heroVideo.init();
   });
 });

@@ -1,8 +1,7 @@
 /* nav */
-.w-mod-js.dark-mode .navbar_menu-wrapper {
+/* .w-mod-js.dark-mode .navbar_menu-wrapper {
   background-color: var(--dark--background-color--background-grey-opacity);
-  /* footer */
-}
+} */
 
 .w-mod-js.dark-mode .footer_loop-overlay {
   background-image: linear-gradient(90deg, #141414, transparent);
