@@ -18,3 +18,19 @@
 .fs_radio-2_field.is-active-inputactive .fs_radio-2_label {
   opacity: 1;
 }
+
+.experts_team_cards {
+  transition: transform 0.25s ease-in-out;
+}
+
+.experts_team_cards:hover {
+  transform: translateY(-1.5rem);
+}
+
+.experts_team_cards-description {
+  transition: opacity 0.25s ease-out;
+}
+
+.experts_team_cards:hover .experts_team_cards-description {
+  opacity: 1;
+}

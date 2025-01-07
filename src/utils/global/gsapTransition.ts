@@ -108,15 +108,3 @@ export const gsapTransitionOut = () => {
       '-=1'
     );
 };
-
-/* 
-TODO: Remove when ok
-*/
-export const initBarbaClick = () => {
-  const triggers = document.querySelectorAll('[barba=trigger]');
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      alert('fonctionne');
-    });
-  });
-};

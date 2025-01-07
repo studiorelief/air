@@ -7,7 +7,8 @@ import gsap from 'gsap';
 import { swiperPageTech } from '$utils/component/swiper/swiperTech';
 import { swiperUsecasesCarousel } from '$utils/component/swiper/swiperUsecases';
 import { darkMode } from '$utils/global/darkMode';
-import { gsapTransitionOut, initBarbaClick } from '$utils/global/gsapTransition';
+// import { gsapTransitionV2Out } from '$utils/global/gsapTransitionV2';
+import { gsapTransitionOut } from '$utils/global/gsapTransition';
 import { initHeroBackgroundHover } from '$utils/global/heroBackground';
 import { loadScript } from '$utils/global/loadScript';
 import { initMarker } from '$utils/global/marker';
@@ -30,7 +31,7 @@ window.Webflow.push(() => {
   */
 
   /* first load */
-  initBarbaClick();
+  // initBarbaClick();
   loadModelViewerScript();
 
   /* Global */
@@ -84,8 +85,7 @@ window.Webflow.push(() => {
   rotateBackgroundAssets();
   heroVideoAnimation();
 
-  /* Experts */
-
+  // Animation V0
   barba.init({
     transitions: [
       {
@@ -144,7 +144,7 @@ window.Webflow.push(() => {
     // scroll to top
     window.scrollTo(0, 0);
     restartWebflow();
-    initBarbaClick();
+    // initBarbaClick();
 
     /* Headings & Heroes */
     activeSplitText();
