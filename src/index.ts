@@ -7,8 +7,8 @@ import gsap from 'gsap';
 import { swiperPageTech } from '$utils/component/swiper/swiperTech';
 import { swiperUsecasesCarousel } from '$utils/component/swiper/swiperUsecases';
 import { darkMode } from '$utils/global/darkMode';
-// import { gsapTransitionV2Out } from '$utils/global/gsapTransitionV2';
-import { gsapTransitionOut } from '$utils/global/gsapTransition';
+import { gsapTransitionV2 } from '$utils/global/gsapTransitionV2';
+// import { gsapTransitionOut } from '$utils/global/gsapTransition';
 import { initHeroBackgroundHover } from '$utils/global/heroBackground';
 import { loadScript } from '$utils/global/loadScript';
 import { initMarker } from '$utils/global/marker';
@@ -17,33 +17,60 @@ import { activeSplitText } from '$utils/global/splitType';
 import { initTechLineScroll } from '$utils/tech/gsapScroll';
 import { animateUsecasesAsset } from '$utils/usecases/lottieParallax';
 import { animateButtonExpertise } from '$utils/vision/expertise-tabs';
-import { heroVideoAnimation } from '$utils/vision/heroVideoAnimation';
 import { marqueeAnimation } from '$utils/vision/marquee';
 import { rotateBackgroundAssets } from '$utils/vision/rotationBackground';
 
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  const heroVideo = heroVideoAnimation();
-  heroVideo.destroy();
-  heroVideo.init();
-  /*
-  ! GLOBAL
-  */
+/* 
+! Animation
+*/
 
-  /* first load */
-  // initBarbaClick();
-  loadModelViewerScript();
+// Animation V0
+barba.init({
+  transitions: [
+    {
+      name: 'page-transition',
+      async leave(data) {
+        //  gsapTransitionOut();
+        return gsap.to(data.current.container, {
+          marginTop: '-25vh',
+          opacity: 0,
+          duration: 0.5,
+          ease: 'power1.out',
+        });
+      },
+      beforeEnter() {
+        gsapTransitionV2();
+      },
+      async after(data) {
+        // await gsapTransitionV2Out();
+        return gsap.from(data.next.container, {
+          marginTop: '25vh',
+          opacity: 0,
+          duration: 0.5,
+          delay: 1,
+          ease: 'power1.out',
+        });
+      },
+    },
+  ],
+});
 
-  /* Global */
-  Promise.all([
-    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsstatic@1/cmsstatic.js'),
-    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
-    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
-  ]);
+/* 
+! Global 
+*/
 
-  darkMode(
-    // variables
-    `
+// Script
+loadModelViewerScript();
+
+Promise.all([
+  loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsstatic@1/cmsstatic.js'),
+  loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
+  loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
+]);
+
+// Dark Mode
+darkMode(
+  `
     text-color--text-primary,
     text-color--text-alternate,
     background-color--background-primary,
@@ -54,114 +81,100 @@ window.Webflow.push(() => {
     border-color--border-primary,
     border-color--border-alternate
     `.replace(/\s+/g, ''),
-    // durée
-    0,
-    // ease
-    'power1.inOut'
-  );
+  0,
+  'power1.inOut'
+);
 
-  /* Marker */
-  initMarker();
+// Marker
+initMarker();
 
-  /* Heroes */
-  initHeroBackgroundHover();
+// Headings & Heroes
+activeSplitText();
+initHeroBackgroundHover();
 
-  /* Headings */
-  activeSplitText();
+// Footer
+marqueeAnimation();
 
-  /* Footer */
-  marqueeAnimation();
-
-  /* Usecases */
-  animateUsecasesAsset();
-  swiperUsecasesCarousel();
-
-  /* Tech */
-  swiperPageTech();
-  initTechLineScroll();
-
-  /* Vision */
+/* Vision */
+if (window.location.pathname === '/') {
   animateButtonExpertise();
   rotateBackgroundAssets();
-  heroVideoAnimation();
+  swiperUsecasesCarousel();
+}
 
-  // Animation V0
-  barba.init({
-    transitions: [
-      {
-        name: 'page-transition',
-        async leave(data) {
-          await gsapTransitionOut();
-          gsap.to(data.current.container, { opacity: 0, duration: 0.5 });
-        },
-        async enter(data) {
-          await gsap.to(data.next.container, { opacity: 1, duration: 1 });
-        },
-      },
-    ],
-  });
+/* Tech */
+if (window.location.pathname.includes('tech')) {
+  swiperPageTech();
+  initTechLineScroll();
+}
 
-  /*
-  ! BARBAR BEFORE
-  */
+/* Usecases */
+if (window.location.pathname.includes('usecases')) {
+  animateUsecasesAsset();
+}
 
-  barba.hooks.beforeEnter((data) => {
-    console.log('hook beforeEnter');
+/*
+BARBA BEFORE
+*/
+// barba.hooks.beforeEnter((data) => {
+//   const AnimationPageTextV2 = () => {
+//     const dataNamespace = data.next.namespace;
+//     console.log(dataNamespace);
+//     const transitionText = document.querySelector('.transition-v2_text');
+//     if (transitionText) {
+//       transitionText.textContent = dataNamespace;
+//     }
+//   };
+//   AnimationPageTextV2();
+// });
 
-    /* 
-    TODO: À retravailler -> Comprendre & régler async / await x Barba & GSAP
-    TODO: Check Flip plugin GSAP
-    */
+/*
+! BARBAR AFTER 
+*/
 
-    /* Global */
-    Promise.all([
-      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsstatic@1/cmsstatic.js'),
-      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
-      loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
-    ]);
+barba.hooks.after(async () => {
+  /* Global */
 
-    const AnimationPageText = () => {
-      const dataNamespace = data.next.namespace;
-      console.log(dataNamespace);
-      const transitionText = document.querySelector('.transition_text');
-      if (transitionText) {
-        transitionText.textContent = dataNamespace;
-      }
-    };
-    AnimationPageText();
-    // Reset and restart hero video animation after page transition
-  });
+  await restartWebflow();
 
-  /*
-  ! BARBAR AFTER 
-  */
+  const video = document.querySelectorAll('video');
+  if (video) {
+    video.forEach((v) => {
+      v.play();
+    });
+  }
 
-  barba.hooks.after((data) => {
-    console.log('hook After');
-    console.log(data);
+  // scroll to top
+  window.scrollTo(0, 0);
 
-    /* Global */
-    // scroll to top
-    window.scrollTo(0, 0);
-    restartWebflow();
-    // initBarbaClick();
+  // Headings & Heroes
+  activeSplitText();
+  initHeroBackgroundHover();
 
-    /* Headings & Heroes */
-    activeSplitText();
-    initHeroBackgroundHover();
+  // Script
+  loadModelViewerScript();
 
-    /* Tech */
-    swiperPageTech();
-    initTechLineScroll();
+  Promise.all([
+    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsstatic@1/cmsstatic.js'),
+    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsfilter@1/cmsfilter.js'),
+    loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'),
+  ]);
 
-    /* Usecases */
-    animateUsecasesAsset();
-    swiperUsecasesCarousel();
-
-    /* Vision */
+  /* Vision */
+  if (window.location.pathname === '/') {
     animateButtonExpertise();
     rotateBackgroundAssets();
-    heroVideo.destroy();
-    heroVideo.init();
-  });
+    swiperUsecasesCarousel();
+  }
+
+  /* Tech */
+  if (window.location.pathname.includes('tech')) {
+    swiperPageTech();
+    initTechLineScroll();
+  }
+
+  /* Usecases */
+  if (window.location.pathname.includes('usecases')) {
+    animateUsecasesAsset();
+  }
 });
