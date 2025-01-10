@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import { swiperPageTech } from '$utils/component/swiper/swiperTech';
 import { swiperUsecasesCarousel } from '$utils/component/swiper/swiperUsecases';
 import { darkMode } from '$utils/global/darkMode';
-import { gsapTransitionV2 } from '$utils/global/gsapTransitionV2';
+import { addFirstLetterSpan, gsapTransitionV2 } from '$utils/global/gsapTransitionV2';
 // import { gsapTransitionOut } from '$utils/global/gsapTransition';
 import { initHeroBackgroundHover } from '$utils/global/heroBackground';
 import { loadScript } from '$utils/global/loadScript';
@@ -47,7 +47,7 @@ barba.init({
           marginTop: '25vh',
           opacity: 0,
           duration: 0.5,
-          delay: 1,
+          delay: 1.25,
           ease: 'power1.out',
         });
       },
@@ -91,6 +91,7 @@ initMarker();
 // Headings & Heroes
 activeSplitText();
 initHeroBackgroundHover();
+addFirstLetterSpan();
 
 // Footer
 marqueeAnimation();
@@ -150,6 +151,7 @@ barba.hooks.after(async () => {
   // Headings & Heroes
   activeSplitText();
   initHeroBackgroundHover();
+  addFirstLetterSpan();
 
   // Script
   loadModelViewerScript();
