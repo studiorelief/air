@@ -21,19 +21,19 @@ export function gsapTransitionV2() {
     transitionWrapperV2,
     {
       display: 'none',
-      //   marginTop: '100vh',
+      marginTop: '12.5vh',
       opacity: 0,
       //   duration: 0.25,
     },
     {
       display: 'flex',
-      //   marginTop: '0vh',
+      marginTop: '0vh',
       opacity: 1,
       duration: 0.25,
       ease: 'power1.out',
     }
   ).to(transitionWrapperV2, {
-    // marginTop: '-100vh',
+    marginTop: '-12.5vh',
     opacity: 0,
     duration: 0.25,
     delay: 0.5,
@@ -50,3 +50,15 @@ export function gsapTransitionV2() {
   };
   AnimationPageTextV2();
 }
+
+export const addFirstLetterSpan = () => {
+  const transitionText = document.querySelector('.transition-v2_text');
+  if (transitionText) {
+    const text = transitionText.textContent || '';
+    if (text.length > 0) {
+      const firstLetter = text[0];
+      const restOfText = text.slice(1);
+      transitionText.innerHTML = `<span class="split-text is-first">${firstLetter}</span>${restOfText}`;
+    }
+  }
+};
