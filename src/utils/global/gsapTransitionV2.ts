@@ -21,7 +21,7 @@ export function gsapTransitionV2() {
     transitionWrapperV2,
     {
       display: 'none',
-      marginTop: '12.5vh',
+      marginTop: '0vh',
       opacity: 0,
       //   duration: 0.25,
     },
