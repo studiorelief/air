@@ -42,7 +42,8 @@
 }
 
 [data-wf--cc---component-button-main--variant='base']:hover,
-[data-wf--cc---component-button-main--variant='base-big']:hover {
+[data-wf--cc---component-button-main--variant='base-big']:hover,
+[data-wf--cc---component-button-main--variant='navbar']:hover {
   color: var(--dark--text-color--text-primary,);
   /* color: red; */
 }
